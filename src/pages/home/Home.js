@@ -14,14 +14,12 @@ const Home = ({type}) =>{
             try{
                 const res = await axios.get(
                     `lists${type ? "?type=" + type : ""}${genre ? "&genre=" + genre: ""}`,{
-                    headers : {
-                      token: 
-                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMmM2ODdlNzVhNDY5ZjA1OWI1YzY2ZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMDMzNzEwMSwiZXhwIjoxNjMwNzY5MTAxfQ.A7vth7VJzddEGOSelAJtnlFKhI7GM992JpaAjVl_vfI"
-                    },
+                        headers: { 
+                            token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken, 
+                        },
                   }
                 );
-
-                console.log(res)
+                console.log(res.data)
                 setLists(res.data);
 
             }catch(err){
@@ -35,7 +33,7 @@ const Home = ({type}) =>{
         <>
         <div className="home">
            <Navbar />
-           <Featured type={type}/>
+           <Featured type={type} setGenre={setGenre}/>
            {lists.map((list) => (
                <List list={list} />
            ))}

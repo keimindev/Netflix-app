@@ -1,14 +1,27 @@
-import React, { useState , useEffect } from 'react';
+import React, { useState , useContext } from 'react';
+import { useHistory } from 'react-router';
 import { Search, Notifications, ArrowDropDown } from '@material-ui/icons';
 import './navbar.scss';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../authContext/AuthContext';
+import { logout } from '../../authContext/AuthAction';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
+    const { dispatch } = useContext(AuthContext);
+    const history = useHistory();
+
+    const profileIcon = JSON.parse(localStorage.getItem('user'));
 
     window.onscroll = () => {
         setIsScrolled(window.pageYOffset === 0 ? false : true)
         return () => (window.onscroll = null);
+    }
+
+    const handleLogout = (e) => {
+        e.preventDefault();
+        dispatch(logout());
+        history.push('/');
     }
 
 
@@ -22,10 +35,10 @@ const Navbar = () => {
                    <span>Homepage</span>
                    </Link>
                    <Link to ="/series" className="link">
-                   <span>Series</span>
+                   <span className="navbar-tablet--links">Series</span>
                    </Link>
                    <Link to="/movies" className="link">
-                   <span>Movies</span>
+                   <span className="navbar-tablet--links">Movies</span>
                    </Link>
                    <span>New and Popular</span>
                    <span>My List</span>
@@ -34,12 +47,12 @@ const Navbar = () => {
                    <Search className="icon" />
                    <span>KID</span>
                    <Notifications className="icon"/>
-                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5tOEDX1L_GfNB8nIUqpYXwMmUu4lF-tTfwA&usqp=CAU" alt="profile"/>
+                   <img src={profileIcon.profilePic} alt="profile"/>
                    <div className="profile">
                     <ArrowDropDown className="icon"/>
                     <div className="options">
                         <span>Setting</span>
-                        <span>Log out</span>
+                        <span onClick={handleLogout}>Log out</span>
                     </div>
                    </div>
                </div>

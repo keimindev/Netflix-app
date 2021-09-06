@@ -1,3 +1,6 @@
+@import "../../index.scss";
+
+
 .navbar{ 
     width: 100%;
     color: #fff;
@@ -23,9 +26,25 @@
             display: flex;
             align-items: center;
 
-            img { height: 30px; margin-right: 40px;}
+            img { height: 30px; margin-right: 40px;
+            
+                @include mobile{
+                    display: none;
+                }
+            }
 
-            span { margin-right: 20px; cursor: pointer;}
+            span { margin-right: 20px; cursor: pointer;
+            
+                @include tablet{
+                    display: none;
+                }
+
+                &.navbar-tablet--links{
+                    @include tablet{
+                        display: block;
+                    }
+                }
+            }
 
         }
 

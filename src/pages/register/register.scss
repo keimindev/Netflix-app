@@ -1,3 +1,6 @@
+@import '../../index.scss';
+
+
 .register{
     width: 100vw;
     height: 100vh;
@@ -21,15 +24,21 @@
                 height: 40px;
             }
 
-            .login-btn{
-                background-color: red;
-                border: none;
-                color: #fff;
-                border-radius: 5px;
-                padding: 8px 15px;
-                font-weight: 600;
-                cursor: pointer;
+            .link{
+        
+
+                .login-btn{
+                    background-color: red;
+                    border: none;
+                    color: #fff;
+                    border-radius: 5px;
+                    padding: 8px 15px;
+                    font-weight: 600;
+                    cursor: pointer;
+                }
             }
+
+
         }
 
     }
@@ -46,13 +55,28 @@
         justify-content: center;
         color: #fff;
 
+        @include tablet{
+            text-align: center;
+        }
+
+
 
         h1{
             font-size: 50px;
+
+            @include mobile{
+                font-size: 30px;
+
+            }
         }
 
         h2{
             margin: 20px;
+
+            @include mobile{
+                font-size: 18px;
+        
+            }
         }
 
         p{
@@ -68,6 +92,18 @@
             justify-content: space-between;
             margin-top: 20px;
             border-radius: 5px;
+            
+            @include tablet{
+                width: 70%;
+    
+
+            }
+
+            @include mobile{
+                width: 90%;
+    
+
+            }
 
             input{
                 flex: 9;
@@ -75,6 +111,8 @@
                 border: none;
                 outline: none;
                 padding: 0 10px;
+                border-top-left-radius: .25em;
+                border-bottom-left-radius: .25em;
             }
 
             .register-btn{
@@ -86,9 +124,127 @@
                 color: #fff;
                 font-size: 20px;
                 cursor: pointer;
+                border-top-right-radius: .25em;
+                border-bottom-right-radius: .25em;
+
+                @include mobile{
+                    font-size: 16px;
+    
+                }
+                
             }
 
             
+        }
+
+    
+
+        .input-profile{
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 20px;
+            border-radius: 5px;
+
+            @include tablet{
+                width: 80%;
+    
+            }
+
+
+            .input-img{
+               width: 50%;
+
+               @include mobile{
+                   width: 100%;
+               }
+
+                .file-preview{
+                    width: 150px;
+                    height: 150px;
+                    margin-left: 20%;
+            
+
+                    @include tablet{
+                        margin-left: 0%;
+            
+                    }
+
+                
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+
+                }
+
+                .file-btn {
+                    display: flex;
+                    flex-direction: row;
+                    margin-top: 10px;
+
+                    button{
+                        background-color: red;
+                        border-top-right-radius: .25em;
+                        border-bottom-right-radius: .25em;
+                        border: none;
+                        outline: none;
+                        color: #fff;
+                        padding: 10px 10px;
+                        cursor: pointer;
+                    }
+
+                }
+
+
+
+    
+            }
+
+
+            .input-username{
+                width: 50%;
+    
+                display: flex;
+                margin-top: 20px;
+
+                @include mobile{
+                    width: 100%;
+                }
+ 
+
+                input{
+                    flex: 9;
+                    height: 100%;
+                    border: none;
+                    outline: none;
+                    padding: 10px 10px;
+                    background-color: rgba(255,255,255,0.4);
+                    border-top-left-radius: .25em;
+                    border-bottom-left-radius: .25em;
+                    color: #fff;
+
+                    &::placeholder{
+                        color: #fff;
+                    }
+                }
+
+                button{
+                    background-color: red;
+                    border-top-right-radius: .25em;
+                    border-bottom-right-radius: .25em;
+                    border: none;
+                    outline: none;
+                    color: #fff;
+                    padding: 0px 10px;
+                    cursor: pointer;
+                }
+
+            }
+
         }
     }
 }

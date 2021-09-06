@@ -1,20 +1,20 @@
-import React from "react";
+import React, {useContext} from "react";
 import Home from "./pages/home/Home";
 import Watch from "./pages/watch/Watch";
 import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
+import {AuthContext} from './authContext/AuthContext';
 
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
   Redirect
 } from "react-router-dom";
 
 
 function App() {
-  const user = true;
+  const {user} = useContext(AuthContext);
 
   return (
     <Router>
@@ -30,11 +30,11 @@ function App() {
       </Route>
       {user && (
         <>
-        <Route path="/Movies">
-         <Home type="Movies"/>
+        <Route path="/movies">
+         <Home type="movie"/>
         </Route>
-        <Route path="/Series">
-         <Home type="Series"/>
+        <Route path="/series">
+         <Home type="series"/>
         </Route>
         <Route path="/watch">
         <Watch />
