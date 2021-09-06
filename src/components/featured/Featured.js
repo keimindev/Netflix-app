@@ -1,7 +1,7 @@
 import { InfoOutlined, PlayArrow } from '@material-ui/icons'
 import React, {useState, useEffect} from 'react'
 import "./featured.scss";
-import {axiosInstance} from '../../../config';
+import {axiosInstance} from '../../config';
 
 const Featured = ({ type , setGenre }) => {
     const [content, setContent] = useState({});

@@ -1,7 +1,7 @@
 import { PlayArrow ,  Add, ThumbUpAltOutlined, ThumbDownOutlined } from '@material-ui/icons';
 import React, { useState, useEffect } from 'react';
 import './listitem.scss';
-import {axiosInstance} from '../../../config';
+import {axiosInstance} from '../../config';
 import { Link } from "react-router-dom";
 
 const ListItem = ({ index, item }) => {

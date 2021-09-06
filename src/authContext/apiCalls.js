@@ -1,4 +1,4 @@
-import {axiosInstance} from "../../config";
+import {axiosInstance} from "../config";
 import { loginStart, loginSuccess, loginFailure } from './AuthAction'
 
 export const login = async ( user, dispatch ) => {

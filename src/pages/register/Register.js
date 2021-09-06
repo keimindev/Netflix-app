@@ -1,4 +1,4 @@
-import {axiosInstance} from '../../../config';
+import {axiosInstance} from '../../config';
 import React, {useState, useRef} from 'react'
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router';
